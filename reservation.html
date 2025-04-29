@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Réserver un rendez-vous avec nous</title>
+  <style>
+    #booking {
+      background-color: #f9f9f9;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    #booking h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color:rgb(124, 72, 4);
+    }
+
+    #booking-form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    #booking-form label {
+      text-align: left;
+      font-weight: bold;
+      color: #333;
+    }
+
+    #booking-form input,
+    #booking-form select,
+    #booking-form button {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid rgb(202, 154, 109)687;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    #booking-form input:focus,
+    #booking-form select:focus {
+      border-color:rgb(212, 104, 14);
+      box-shadow: 0 0 5px rgba(158, 103, 39, 0.66);
+    }
+
+    #booking-form button {
+      background-color:rgb(189, 111, 9);
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #booking-form button:hover {
+      background-color:rgb(173, 108, 10);
+    }
+  </style>
+</head>
+<body>
+  <section id="booking">
+    <h2>Réserver un rendez-vous avec nous</h2>
+    <form id="booking-form">
+      <label for="name">Nom complet</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="date">Date</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="text">message </label>
+      <input type="text" id="text">
+   
+      <button type="submit">Réserver</button>
+    </form>
+
+    <div id="confirmation-message" style="display: none; margin-top: 10px; color: green;">
+      Votre message a été envoyé avec succès. Consultez régulièrement votre courrier électronique.
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('booking-form');
+    const message = document.getElementById('confirmation-message');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // يمنع الإرسال الحقيقي
+      message.style.display = 'block'; // عرض رسالة التأكيد
+      form.reset(); // تفريغ النموذج
+    });
+  </script>
+</body>
+</html>
+
